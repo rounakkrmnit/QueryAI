@@ -1,0 +1,21 @@
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/**/*.pyc
+
+# Environment variables
+backend/.env
+frontend/.env
+
+# Generated files
+backend/uploads/
+backend/vectorstore/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# OS / editor
+.vscode/
+.DS_Store
+Thumbs.db
