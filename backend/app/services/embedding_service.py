@@ -1,10 +1,12 @@
+from functools import lru_cache
+
 from langchain_huggingface import HuggingFaceEmbeddings
 
 
-embedding_model = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
-)
-
-
+@lru_cache(maxsize=1)
 def get_embedding_model():
-    return embedding_model
+    """Load the embedding model only when it is first needed."""
+
+    return HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    )
