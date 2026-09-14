@@ -1,12 +1,13 @@
 from functools import lru_cache
 
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 
 @lru_cache(maxsize=1)
 def get_embedding_model():
-    """Load the embedding model only when it is first needed."""
+    """Return the Gemini embedding model."""
 
-    return HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    return GoogleGenerativeAIEmbeddings(
+        model="models/gemini-embedding-001",
+        output_dimensionality=768,
     )
